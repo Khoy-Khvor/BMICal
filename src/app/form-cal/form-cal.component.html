@@ -1,0 +1,100 @@
+<section class="w-full h-screen flex items-center justify-center bg-white ">
+  <div
+    class="lg:w-[80%] w-full max-w-[1600px] h-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 mt-5 gap-5 xl:gap-0"
+  >
+    <form
+    [formGroup]="formGroup"
+    (submit)="calculateBMI($event)"
+      action="#"
+      class="h-[600px] shadow-white1 shadow-lg lg:border lg:mt-5  bg-white col-span-1 p-6 rounded-lg gap-10 flex flex-col"
+    >
+      <div
+        class="w-full flex items-center justify-center bg-white1 p-3 sm:bg-white sm:p-0"
+      >
+        <span class="font-sans font-bold text-lg sm:text-2xl lg:text-4xl"
+          >BMI Calculator</span
+        >
+      </div>
+      <div class="grid grid-cols-1 gap-5">
+        <div class="flex lg:items-center items-end gap-5">
+          <div>
+            <label for="age" class="text-lg lg:text-xl block mb-2">Age</label>
+            <input
+              type="number"
+              id="age"
+              placeholder="Enter your age"
+              class="p-2 rounded-lg bg-gray-100 outline-none w-full border"
+              formControlName="age"
+            />
+          </div>
+          <span
+            class="font-sans font-bold lg:text-2xl text-lg flex-1 h-full flex items-end sm:pb-2 justify-center"
+            >Ages</span
+          >
+        </div>
+        <div class="">
+          <label for="h" class="text-lg block mb-2">Height (Cm)</label>
+          <input
+            type="number"
+            class="p-2 rounded-lg bg-gray-100 outline-none w-full border"
+            placeholder="Enter height"
+            formControlName="height"
+            />
+        </div>
+        <div class="">
+          <label for="w" class="text-lg block mb-2">Wieght (Kg)</label>
+          <input
+            type="number"
+            class="p-2 rounded-lg bg-gray-100 outline-none w-full border"
+            placeholder="Enter wieght"
+            formControlName="weight"
+            />
+        </div>
+        <div class="block lg:flex items-end justify-end   gap-3 mt-3">
+          <label for="gender" class="text-lg block ">Gender</label>
+          <div class="flex items-center  gap-5 mt-2 lg:mt-0">
+            <div class="flex items-center gap-4">
+              <input
+                id="male"
+                name="gender"
+                type="radio"
+                class="p-2 bg-gray-100 outline-none shadow-sm size-5 cursor-pointer"
+                placeholder="Enter wieght"
+                formControlName="gender"
+                value="male"
+                />
+              <label for="male" class="text-lg block">Male</label>
+            </div>
+            <div class="flex items-center gap-4">
+              <input
+                id="female"
+                name="gender"
+                type="radio"
+                class="p-2 bg-gray-100 outline-none shadow-sm size-5 cursor-pointer"
+                placeholder="Enter wieght"
+                value="female"
+                formControlName="gender"
+                />
+              <label for="female" class="text-lg block">Female</label>
+            </div>
+          </div>
+        </div>
+        <div class="w-full flex gap-3 items-center lg:mt-10">
+          <button
+          type="submit"
+            class="w-full rounded-xl bg-blue hover:shadow-lg shadow-blue duration-200 ease-in font-sans font-semibold text-white1 text-lg mt-3 p-2 text-center"
+          >
+            Calculate
+          </button>
+          <button
+          (click)="clear()"
+            class="w-full rounded-xl border hover:shadow-lg duration-200 ease-in font-sans font-semibold text-black text-lg mt-3 p-2 text-center"
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+    </form>
+    <app-result class="2xl:col-span-2  h-full" [cat]="bmiCategory" [result]="bmi"></app-result>
+  </div>
+</section>

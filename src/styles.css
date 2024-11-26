@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .text-shadow-white {
+    text-shadow: 0 0 0px black; /* White shadow*/
+    -webkit-text-stroke: .5px #fff;
+  }
+
+
+}
